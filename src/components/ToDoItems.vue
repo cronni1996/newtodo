@@ -1,11 +1,11 @@
 <template>
 
   <li class="lio">
- <span v-bind:class="{done: todo.completed}">
+ <span v-bind:class="{done: todos.completed}">
 <input type="checkbox"
        @change="bulew">
    <strong>{{index+1}}</strong>
-   {{todo.title}}
+   {{todos.title}}
  </span>
     <button class="bt"
     v-on:click="$emit('remove-todo', todos.id )">
