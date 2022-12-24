@@ -8,7 +8,7 @@
    {{todos.title}}
  </span>
     <button class="bt"
-    v-on:click="$emit('remove-todo', todos.id )">
+    v-on:click="$emit('remove-todo', todo.id )">
       X</button>
   </li>
 </template>
