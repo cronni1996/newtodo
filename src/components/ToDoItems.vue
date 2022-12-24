@@ -3,8 +3,7 @@
   <li class="lio">
  <span v-bind:class="{done: todo.completed}">
 <input type="checkbox"
-       v-on:change="
-{/* eslint-disable-next-line vue/no-mutating-props */}todo.completed = !todo.completed">
+       @change="bulew">
    <strong>{{index+1}}</strong>
    {{todo.title}}
  </span>
@@ -15,6 +14,9 @@
 </template>
 
 <script>
+
+
+
 export default {
   props: {
     todo: {
@@ -22,8 +24,21 @@ export default {
       required: true
     },
     index: Number
+  },
+  data() {
+    return {
+      todos: this.todo
+    }
+  },
+
+  methods: {
+    bulew() {
+      this.todos.completed = !this.todos.completed
+    }
   }
 }
+
+
 </script >
 
 <style scoped>

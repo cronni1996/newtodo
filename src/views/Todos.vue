@@ -32,11 +32,7 @@ export default {
   },
 
 
-  // mounted() {
-  //   fetch('https://jsonplaceholder.typicode.com/todos')
-  //       .then(response =>response.json())
-  //       .then( json =>  { this.todos = json })
-  // },
+
   methods:{
     removeToDo(id){
       this.todos = this.todos.filter(t => t.id !== id)
