@@ -3,9 +3,9 @@
     <ul>
 
       <ToDoItems
-          v-for="(todo, index ) of todos" :key=index
+          v-for="(todo, i ) of todos" :key=i
           v-bind:todo="todo"
-          v-bind:index=index
+          v-bind:index=i
           v-on:remove-todo="removeToDo"
       />
     </ul>

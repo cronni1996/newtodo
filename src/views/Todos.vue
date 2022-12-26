@@ -15,9 +15,9 @@
     <LoaderTodo v-if="loading"/>
 
     <TodoList
-    v-else-if="filterTodo.length"
-    v-bind:todos="filterTodo"
-    @remove-todo="removeToDo"
+        v-else-if="filterTodo.length"
+        v-bind:todos="filterTodo"
+        @remove-todo="removeToDo"
     />
     <p v-else>No Todos!!!</p>
   </div>
@@ -52,9 +52,9 @@ export default {
 
   computed:{
     filterTodo(){
-       if (this.filter === "all") return this.todos
-       if (this.filter === "completed"){return this.todos.filter(t => t.completed)}
-       if (this.filter === "not-completed"){return this.todos.filter(t => !t.completed)}
+      if (this.filter === "all") return this.todos
+      if (this.filter === "completed"){return this.todos.filter(t => t.completed)}
+      if (this.filter === "not-completed"){return this.todos.filter(t => !t.completed)}
       else  return console.log('!!!не отработал фильтр!!!')
     }
   },
