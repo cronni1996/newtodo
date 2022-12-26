@@ -3,8 +3,7 @@
 </template>
 
 
-<style>
-.lds-roller {
+<style>.lds-roller {
   display: inline-block;
   position: relative;
   width: 80px;
@@ -21,7 +20,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff;
+  background: #fcf;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
