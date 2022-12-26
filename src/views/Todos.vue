@@ -33,7 +33,7 @@ export default {
     }
   },
   mounted() {
-    fetch('https://jsonplaceholder.typicode.com/todos')
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
         .then(response =>response.json())
         .then( json =>  {
           setTimeout(() =>{
