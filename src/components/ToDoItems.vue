@@ -5,7 +5,7 @@
 <input type="checkbox"
        @change="bulew">
    <strong>{{index+1}}</strong>
-   {{todos.title}}
+   {{todo.title }}
  </span>
     <button class="bt"
     v-on:click="$emit('remove-todo', todo.id )">
@@ -34,6 +34,12 @@ export default {
   methods: {
     bulew() {
       this.todos.completed = !this.todos.completed
+    }
+  } ,
+
+  filters:{
+    uppercase(value) {
+return value.toUpperCase()
     }
   }
 }
