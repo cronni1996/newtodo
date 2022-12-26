@@ -1,15 +1,20 @@
 <template>
   <div >
+    <router-link to="/">Home</router-link>
     <h2 >ToDo application </h2>
     <addTodo
         @add-Todo="addTodo"
     />
     <hr>
 
+      <LoaderTodo v-if="loading" />
+
     <TodoList
+        v-else-if="todos.length"
         v-bind:todos="todos"
         @remove-todo="removeToDo"
     />
+    <p v-else>No Todos!!!</p>
   </div>
 </template>
 
@@ -17,18 +22,26 @@
 import TodoList from "@/components/TodoList";
 // import addTodo from "@/components/addTodo";
 import AddTodo from "@/components/addTodo";
+import LoaderTodo from "@/components/LoaderTodo"
 
 export default {
   name: 'App',
   data(){
     return{
-      todos: [
-        {id:1, title:'заебаться', completed:false},
-        {id:2, title:'проорать стену', completed:false},
-        {id:3, title:'прогореть', completed:false},
-        {id:4, title:'лечь спать ', completed:false},
-      ]
+      todos: [],
+      loading:  true
     }
+  },
+  mounted() {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(response =>response.json())
+        .then( json =>  {
+          setTimeout(() =>{
+            this.todos = json
+            this.loading= false
+          }, 1000)
+
+        })
   },
 
 
@@ -41,7 +54,7 @@ export default {
       this.todos.push(todo)
     }
   },
-  components: {AddTodo, TodoList}
+  components: {AddTodo, TodoList, LoaderTodo}
 }
 </script>
 
