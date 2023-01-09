@@ -24,30 +24,43 @@
 </template>
 
 <script>
+
 import TodoList from "@/components/TodoList";
 import AddTodo from "@/components/addTodo";
 import LoaderTodo from "@/components/LoaderTodo"
+import axios from "axios"
 
 export default {
   name: 'App',
   data() {
     return {
-      todos: [],
+       todos: [],
+
+      newTodo: null,
       loading: true,
       filter: "all"
     }
   },
   mounted() {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
+
+
+    fetch('http://localhost:3000/items')
         .then(response => response.json())
-        .then(json => {
+        .then(json => {this.todos
           setTimeout(() => {
             this.todos = json
             this.loading = false
-          }, 1000)
+          }, 1)
 
         })
+
+
+
   },
+
+
+
+
 
 
   computed:{
@@ -63,12 +76,56 @@ export default {
     removeToDo(id) {
       this.todos = this.todos.filter(t => t.id !== id)
     },
-    addTodo(todo) {
-      this.todos.push(todo)
-    }
+
+    // removeToDo(x) {
+    //   this.todos.splice(x,1);
+    //   this.saveTodo();
+    // },
+
+
+    //
+    // addTodo(todo) {
+    //   this.todos.push(todo)
+      //this.saveTodo()
+    // },
+
+
+     addTodo( todos) {
+       const ttt= axios.post(`http://localhost:3000/items`,todos );
+       this.todos = [...this.items, ttt ];
+        this.todo = "";
+
+    },
+
+
+    // addTodo() {
+    //   // ensure they actually typed something
+    //   if(!this.todo) return;
+    //   this.todo.push(this.todo);
+    //   this.todo = '';
+    //   this.saveTodo();
+    // },
+  //добавление в json
+
+
+
+
+
+
   },
   components: {AddTodo, TodoList, LoaderTodo}
 }
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <style>
