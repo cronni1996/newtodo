@@ -63,7 +63,25 @@ export default {
       });
     },
 
-
+    completed(id, checked) {
+      if (checked === true) {
+        axios.patch(`http://localhost:3000/items/${id}`, {
+          bought: true,
+        });
+      } else {
+        if (checked === true) {
+          axios.patch(`http://localhost:3000/items/${id}`, {
+            bought: false,
+          });
+        }
+      }
+      this.items = this.items.map((item) => {
+        if (item.id === id) {
+          item.bought = true;
+        }
+        return item;
+      });
+    },
 
     removeItem(id) {
       axios.delete(`http://localhost:3000/items/${id}`);
@@ -196,6 +214,7 @@ ol {
   margin-top: 0;
   float: right;
   text-align: center;
+
   padding: 2px 8px;
   border-width: 2px;
   border-style: outset;

@@ -9,6 +9,11 @@
       "name": "lkj",
       "bought": false,
       "id": 2
+    },
+    {
+      "name": "drgd",
+      "bought": false,
+      "id": 3
     }
   ]
 }
