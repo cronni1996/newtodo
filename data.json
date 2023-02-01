@@ -1,9 +1,14 @@
 {
   "items": [
     {
-      "name": "4646",
-      "bought": true,
+      "name": "Hello World",
+      "bought": false,
       "id": 1
+    },
+    {
+      "name": "lkj",
+      "bought": false,
+      "id": 2
     }
   ]
 }
